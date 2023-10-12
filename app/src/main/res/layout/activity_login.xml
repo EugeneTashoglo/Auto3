@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вход"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Пароль"
+        android:layout_below="@+id/login_email"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Войти"
+        android:layout_below="@+id/login_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
+
+    <Button
+        android:id="@+id/back_btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_marginTop="386dp"
+        android:text="Назад" />
+
+    <CheckBox
+        android:id="@+id/CheckboxMemory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password"
+        android:layout_marginTop="-1dp"
+        android:text="Запомнить меня" />
+
+</RelativeLayout>
