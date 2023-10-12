@@ -19,7 +19,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+//        val backButton = findViewById<Button>(R.id.back_btn_login)
+//        backButton.setOnClickListener {
+//            onBackPressed()
         auth = FirebaseAuth.getInstance()
         sharedPreferences = getSharedPreferences("com.example.auto3", Context.MODE_PRIVATE)
 
@@ -61,6 +63,10 @@ class LoginActivity : AppCompatActivity() {
                             .show()
                     }
                 }
+        }
+        val backButton = findViewById<Button>(R.id.back_btn_login)
+        backButton.setOnClickListener {
+            finish()
         }
     }
 }
