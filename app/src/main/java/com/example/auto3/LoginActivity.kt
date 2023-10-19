@@ -19,9 +19,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-//        val backButton = findViewById<Button>(R.id.back_btn_login)
-//        backButton.setOnClickListener {
-//            onBackPressed()
+
         auth = FirebaseAuth.getInstance()
         sharedPreferences = getSharedPreferences("com.example.auto3", Context.MODE_PRIVATE)
 
@@ -30,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Проверьте, был ли пользователь уже вошел в систему
         if (sharedPreferences.getBoolean("isChecked", false)) {
-            val intent = Intent(this, AppActivity::class.java)
+            val intent = Intent(this, Navigate::class.java)
             startActivity(intent)
             finish()
         }
@@ -55,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                             sharedPreferences.edit().putString("password", password).apply()
                         }
 
-                        val intent = Intent(this, AppActivity::class.java)
+                        val intent = Intent(this, Navigate::class.java)
                         startActivity(intent)
                         finish()
                     } else {
@@ -64,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
         }
+
         val backButton = findViewById<Button>(R.id.back_btn_login)
         backButton.setOnClickListener {
             finish()

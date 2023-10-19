@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Auto3</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_catalog">Каталог</string>
+    <string name="navigation_cart">Корзина</string>
+    <string name="navigation_purchased">Купленные товары</string>
+    <string name="title_activity_navigate">Navigate</string>
 </resources>
