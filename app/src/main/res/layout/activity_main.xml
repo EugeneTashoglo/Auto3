@@ -7,11 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Добро пожаловать текст -->
-
-    <!-- Кнопка "Войти" -->
-
-    <!-- Кнопка "Регистрация" -->
     <Button
         android:id="@+id/regButton"
         android:layout_width="wrap_content"
