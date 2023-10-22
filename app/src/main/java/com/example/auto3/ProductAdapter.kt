@@ -50,6 +50,7 @@ class ProductAdapter(private val context: Context) : RecyclerView.Adapter<Produc
         return productList.size
     }
     data class Product(
+        var id: String?="",
         var img: String? = "",
         var model: String? = "",
         var price: String? = "",

@@ -3,6 +3,8 @@
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="product_image">Изображение продукта</string>
 
+    <string name="navigation_drawer_open">Open Drawer</string>
+    <string name="navigation_drawer_close">Close Drawer</string>
     <string name="navigation_catalog">Каталог</string>
     <string name="navigation_cart">Корзина</string>
     <string name="navigation_purchased">Купленные товары</string>

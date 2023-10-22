@@ -22,4 +22,5 @@
         android:name="com.example.auto3.ui.notifications.NotificationsFragment"
         android:label="@string/navigation_purchased"
         tools:layout="@layout/fragment_notifications" />
+
 </navigation>
