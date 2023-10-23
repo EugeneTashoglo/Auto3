@@ -49,19 +49,42 @@ class ProductAdapter(private val context: Context) : RecyclerView.Adapter<Produc
     override fun getItemCount(): Int {
         return productList.size
     }
+
     data class Product(
-        var id: String?="",
+        var id: String? = "",
         var img: String? = "",
         var model: String? = "",
         var price: String? = "",
         var year: String? = ""
     )
-    inner class ProductViewHolder(private val binding: ProductItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    inner class ProductViewHolder(private val binding: ProductItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.textViewModel.text = product.model
             binding.textViewPrice.text = product.price
             binding.textViewYear.text = product.year
             Picasso.get().load(product.img).into(binding.imageView)
+
+            // Обработка нажатия кнопки "Добавить в корзину"
+            binding.addToCartButton.setOnClickListener {
+                addToCart(product)
+            }
+        }
+
+        private fun addToCart(product: Product) {
+            val database = FirebaseDatabase.getInstance()
+            val cartRef = database.getReference("Cart")
+
+            // Создаем новый CartItem из продукта и добавляем его в базу данных
+            val cartItem = CartItem(
+                productId = product.id,
+                img = product.img,
+                model = product.model,
+                price = product.price,
+                year = product.year
+            )
+            cartRef.child(product.id!!).setValue(cartItem)
         }
     }
 }
