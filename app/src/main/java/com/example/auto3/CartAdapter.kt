@@ -22,6 +22,9 @@ class CartAdapter(private val context: Context) : RecyclerView.Adapter<CartAdapt
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Очистите список перед добавлением элементов
+                cartList.clear()
+
                 for (cartSnapshot in dataSnapshot.children) {
                     val cartItem = cartSnapshot.getValue(CartItem::class.java)
                     cartList.add(cartItem!!)
@@ -58,10 +61,21 @@ class CartAdapter(private val context: Context) : RecyclerView.Adapter<CartAdapt
             binding.cartItemPrice.text = cartItem.price
             binding.cartItemYear.text = cartItem.year
             Picasso.get().load(cartItem.img).into(binding.cartItemImage)
+            binding.deletCartButton.setOnClickListener {
+                deleteFromCart(cartItem)
+            }
+        }
 
+        private fun deleteFromCart(cartItem: CartItem) {
+            val database = FirebaseDatabase.getInstance()
+            val cartRef = database.getReference("Cart")
+
+            // Удаляем CartItem из базы данных
+            cartRef.child(cartItem.productId!!).removeValue()
         }
     }
-}
+
+        }
 
 
 

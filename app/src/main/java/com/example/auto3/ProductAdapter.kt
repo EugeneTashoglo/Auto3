@@ -22,6 +22,9 @@ class ProductAdapter(private val context: Context) : RecyclerView.Adapter<Produc
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Очистите список перед добавлением элементов
+                productList.clear()
+
                 for (productSnapshot in dataSnapshot.children) {
                     val product = productSnapshot.getValue(Product::class.java)
                     productList.add(product!!)
